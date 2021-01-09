@@ -8,7 +8,7 @@ ast.core.services.other.set_logging_format()
 
 PAGES = {
     "Home": mindfulnessdash,
-    "Resources": UserProfile,
+    "User Profile": UserProfile,
 }
 
 
