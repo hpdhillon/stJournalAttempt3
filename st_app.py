@@ -24,16 +24,13 @@ def main():
     st.sidebar.title("Contribute")
     st.sidebar.info(
         "This an open source project and you are very welcome to **contribute** your awesome "
-        "comments, questions, resources and apps as "
-        "[issues](https://github.com/MarcSkovMadsen/awesome-streamlit/issues) of or "
-        "[pull requests](https://github.com/MarcSkovMadsen/awesome-streamlit/pulls) "
-        "to the [source code](https://github.com/MarcSkovMadsen/awesome-streamlit). "
+        "comments, questions, resources and apps to me @ harpal.dhillon@rutgers.edu"
     )
     st.sidebar.title("About")
     st.sidebar.info(
         """
-        This app is maintained by Marc Skov Madsen. You can learn more about me at
-        [datamodelsanalytics.com](https://datamodelsanalytics.com).
+        This app is maintained by Marc Skov Madsen. You can learn more about me on 
+        linkedin[https://www.linkedin.com/in/harpal-dhillon-056016158/]
 """
     )
 
