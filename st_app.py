@@ -29,7 +29,7 @@ def main():
     st.sidebar.title("About")
     st.sidebar.info(
         """
-        This app is maintained by Harpal. You can learn more about me on 
+        This app is maintained by Harpal Dhillon. You can learn more about me on 
         [linkedin](https://www.linkedin.com/in/harpal-dhillon-056016158/)
 """
     )
