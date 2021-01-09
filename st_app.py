@@ -30,7 +30,7 @@ def main():
     st.sidebar.info(
         """
         This app is maintained by Marc Skov Madsen. You can learn more about me on 
-        linkedin[https://www.linkedin.com/in/harpal-dhillon-056016158/]
+        [linkedin](https://www.linkedin.com/in/harpal-dhillon-056016158/)
 """
     )
 
