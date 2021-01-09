@@ -11,3 +11,4 @@ tqdm
 scikit-learn
 matplotlib
 wordcloud
+awesome_streamlit
