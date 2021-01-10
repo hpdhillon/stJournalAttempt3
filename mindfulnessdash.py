@@ -90,7 +90,7 @@ def write():
                         booleon = booleon + 1
                         break
         rent = .3*(booleon/len(a_embeddings))
-        score = 50 + 50*(rent+(score*.4)+(d*.3))
+        score = 5.1359 * booleon + 1.385 * score + 4.5783
         return score, booleon
 
     #st.title('Hello!')
