@@ -16,10 +16,7 @@ def write():
     #str = random.choice(quote_list)
     #st.write(str)
     df = df.dropna()
-    df = df.dropna()
     df.columns = ["score", "date"]
-    score = df["score"]
-
     recent = score[len(score)-1]
 
     if recent >= 5:
@@ -34,8 +31,6 @@ def write():
 
     col1, col2, col3 = st.beta_columns(3)
     with col1:
-        df = df.dropna()
-        df.columns = ["score", "date"]
         #df["date"] = pd.to_datetime(df["date"])
         fig, ax = plt.subplots()
         right_side = ax.spines["right"]
