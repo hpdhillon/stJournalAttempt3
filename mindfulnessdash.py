@@ -63,6 +63,7 @@ def write():
     #button = st.button()
     #the reason score is compute here and not inside st.button("analysis") is because now it'll be saved rather than refreshed if another button gets pressed
     #basically, variables inside a button aren't available outside of them.
+    #need to append more than that to the list to get meaningful data out of this.
     if len(sentence) > 1:
         if sentence.count(".") == 0:
             st.write("Write more!")
@@ -75,6 +76,8 @@ def write():
                 lis.append([score, booleon])
     #need to revise output. Output should be a page of resources with a gif on top.
     if st.button('Analysis'):
+        #gonna change this to if sentence.count(x) + count(y) .... < 5, then ask them to write more.
+        #the model does poorly on samples less than 5 sentences
         if len(sentence) > 1:
             if sentence.count(".") + sentence.count("!") + sentence.count("?") == 0:
                 st.write("Write more!")
