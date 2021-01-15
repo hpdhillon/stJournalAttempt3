@@ -69,5 +69,5 @@ def write():
                 if word in arr[i]:
                     str = arr[i]
                     st.markdown(str)
-         else:
+        else:
             st.write("your input is too short!")
