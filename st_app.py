@@ -1,5 +1,5 @@
 import streamlit as st
-
+#*need to add FAQ answers on sidebar*
 import awesome_streamlit as ast
 import UserProfile
 import mindfulnessdash
