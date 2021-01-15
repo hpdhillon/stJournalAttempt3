@@ -1,16 +1,16 @@
 def write():
     import streamlit as st
+    #datetime is imported so that the user's [entry, date] pair can be saved
     from datetime import datetime
     import nltk as nltk
+    #I think math is imported to compute ceiling of polarization heuristic. Will delete that and this import soon. 
     import math as math
-    from nltk.tokenize import WordPunctTokenizer
+    #Think I'll remove this tokenizer
     nltk.download('vader_lexicon')
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
     import pandas as pd
     sid = SentimentIntensityAnalyzer()
-    nltk.download('averaged_perceptron_tagger')
-    nltk.download('universal_tagset')
-    from nltk.corpus import wordnet_ic
+    #Might have to remove the following three lines too. A lot will be deleted unless I find some ML use case for it.
     import scipy
     import torch
     #import sklearn
@@ -20,42 +20,8 @@ def write():
     def load_my_model():
         model = SentenceTransformer('distilbert-base-nli-mean-tokens')
         return model
-
-    def polarization_heuristic(user_journal):
-        # score (0-1) 0 is full helplessness and 1 is super happy
-        # get determiners from all submissions
-        # find proportion of polarized determiners to all determiners
-        # return that minus 1
-        # print(user_journal.full_text)
-        # tagged_words = nltk.pos_tag(user_journal.full_text.split(' '))
-        tagged_words = nltk.pos_tag(WordPunctTokenizer().tokenize(user_journal))
-        word_pairs = [(word, nltk.tag.map_tag('en-ptb', 'universal', tag)) for word, tag in tagged_words]
-        potential_absolutist_word = []
-        for word_tag_pair in word_pairs:
-            # word[1] = Part of speech classified
-            # RB = Determiners (Some, All, Few, etc., a)
-            if (word_tag_pair[1] in ["DET","ADV", "ADJ"]):
-                potential_absolutist_word.append(word_tag_pair[0]) # jush push the word, not
-
-        # absolutist ADJ, DET & ADV
-        absolutist_words = ["all", "always", "blame", "every", "never", "absolutely", "complete", "completely", "constant", "definetly", "entire", "ever", "full", "totally", "endless"]
-
-        amount_used_in_text = 0
-        for word in absolutist_words:
-            if word in user_journal:
-                amount_used_in_text = amount_used_in_text + 1
-
-
-        # how many words would be significant (40% of determiners)
-        threshold = math.ceil(len(potential_absolutist_word) * 0.40)
-
-        if (threshold == 0):
-            return 0 # neutral
-
-        if (amount_used_in_text/threshold > 1):
-            return -1;
-        else:
-            return 1 - (amount_used_in_text/threshold);
+    #As mentioned before, this should be deleted soon
+    #Gotta revise this ML code. Need to upload the saved GradientBoostedClassifier.
     @st.cache
     def analysis(sentence):
         m = sid.polarity_scores(sentence)
@@ -93,10 +59,10 @@ def write():
         score = 5.1359 * rent + 1.385 * score + 4.5783
         return score, booleon
 
-    #st.title('Hello!')
-    #st.markdown("![Alt Text](https://data.whicdn.com/images/260389678/original.gif)")
     sentence = st.text_area("what's on your mind?")
     #button = st.button()
+    #the reason score is compute here and not inside st.button("analysis") is because now it'll be saved rather than refreshed if another button gets pressed
+    #basically, variables inside a button aren't available outside of them.
     if len(sentence) > 1:
         if sentence.count(".") == 0:
             st.write("Write more!")
@@ -107,11 +73,12 @@ def write():
             except:
                 lis = list()
                 lis.append([score, booleon])
-
+    #need to revise output. Output should be a page of resources with a gif on top.
     if st.button('Analysis'):
-        #score = 50 + (50*(rent+((score+d-.5)/2)))
+        if len(sentence) > 1:
+            if sentence.count(".") + sentence.count("!") + sentence.count("?") == 0:
+                st.write("Write more!")
         st.write('your score is:', score)
-        #st.empty()
         if booleon <  -2:
             st.write("You sound sad. That's fine. Let it all out.")
             st.markdown("![Alt Text](https://media.tenor.com/images/ff4a60a02557236c910f864611271df2/tenor.gif)")
@@ -123,7 +90,6 @@ def write():
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
     today = datetime.now()
     #st.text_input doesn't work inside the st.button()....gotta figure out why
-    #the score saved is the score on the outside
     if st.button('Save my score'):
         try:
             import csv
