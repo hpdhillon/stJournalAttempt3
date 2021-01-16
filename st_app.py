@@ -24,8 +24,8 @@ def main():
     st.sidebar.title("FAQ")
     st.sidebar.info(
         "The model requires at least 4 sentences to be accurate. Current accuracy is 86 percent, so that means it's possible for it to mess up sometimes!"
-        "Reporting mistakes greatly helps us predict better in the future. As of right now, we do not have access to any user data (we'd have to guess your usernames for that)."
-        "So if you'd like to help us, please fill out this google form with your journal entry and what you feel the model should have output. Thank you!"
+        " Reporting mistakes greatly helps us predict better in the future. As of right now, we do not have access to any user data (we'd have to guess your usernames for that)."
+        " So if you'd like to help us, please fill out this google form with your journal entry and what you feel the model should have output. Thank you!"
     )
     st.sidebar.title("About")
     st.sidebar.info(
