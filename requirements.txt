@@ -12,3 +12,4 @@ scikit-learn
 matplotlib
 wordcloud
 awesome_streamlit
+joblib
