@@ -21,6 +21,7 @@ def write():
     #st.write(str)
     df = df.dropna()
     df.columns = ["score", "date"]
+    score = df["score"]
     #recent = the most recent score
     recent = score[len(score)-1]
     #below are placeholders for personalized notes. should add functionality for this l8r
