@@ -68,10 +68,10 @@ def write():
         isear_feature = 0
         for j in range(len(a_embeddings)):
             for i in range(len(isear_list)):
-            result = 1 - spatial.distance.cosine(isear_list[i], a_embeddings[j])
-            if result >= .8:
-              isear_feature = isear_feature - 1
-              break
+                result = 1 - spatial.distance.cosine(isear_list[i], a_embeddings[j])
+                if result >= .8:
+                  isear_feature = isear_feature - 1
+                  break
 
         lis.append([rent, isear_feature, score, score2])
         return lis    
