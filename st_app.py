@@ -27,6 +27,14 @@ def main():
         " Reporting mistakes greatly helps us predict better in the future. As of right now, we do not have access to any user data (we'd have to guess your usernames for that)."
         " So if you'd like to help us, please fill out this google form with your journal entry and what you feel the model should have output. Thank you!"
     )
+    st.sidebar.title("Credits")
+    st.sidebar.info(
+        "Thank you to Marc Skov Madsen for creating awesome_streamlit, the library that allowed us to easily create this nav bar"
+        "Thank you to Kevin Northover for introducing me to streamlit, last year at a New Jersey Data Science Meetup"
+        "Thank you to UKPLab for creating sentence-bert, Stanford for the open pessimist/optimist tweet data, the isear dataset curators and google's colab creators for giving us the platform we needed to generate our complex features and model"
+    )
+
+
     st.sidebar.title("About")
     st.sidebar.info(
         """
