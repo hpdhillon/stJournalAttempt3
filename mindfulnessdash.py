@@ -94,10 +94,13 @@ def write():
             result = loaded_model.predict(df)
             if result[0] == 0:
                 score = "pessimistic"
+                booleon = -3
             if result[0] == 1:
                 score = "neutral"
+                booleon = 0
             if result[0] == 2:
                 score = "optimistic"
+                booleon = 3
             #try:
             #    lis.append([df[0]])
             #except:
@@ -112,13 +115,13 @@ def write():
                 st.write("Write more!")
             else:
                 st.write("you're feeling : " + score)
-                #if booleon <  -2:
-                #    st.write("You sound sad. That's fine. Let it all out.")
-                #    st.markdown("![Alt Text](https://media.tenor.com/images/ff4a60a02557236c910f864611271df2/tenor.gif)")
-                #    st.markdown("[Click here if you need extra help](https://suicidepreventionlifeline.org/chat/)")
-                #if booleon > 2:
-                #    st.write("You are a ray of sunshine today! Keep it up playa!")
-                #    st.markdown("![Alt Text](https://media.tenor.com/images/2aa9b6f3a7d832c2ff1c1a406d5eae73/tenor.gif)")
+                if booleon <  -2:
+                    st.write("You sound sad. That's fine. Let it all out.")
+                    st.markdown("![Alt Text](https://media.tenor.com/images/ff4a60a02557236c910f864611271df2/tenor.gif)")
+                    st.markdown("[Click here if you need extra help](https://suicidepreventionlifeline.org/chat/)")
+                if booleon > 2:
+                    st.write("You are a ray of sunshine today! Keep it up playa!")
+                    st.markdown("![Alt Text](https://media.tenor.com/images/2aa9b6f3a7d832c2ff1c1a406d5eae73/tenor.gif)")
     #st.header("Insert your username below to save your score")
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
     today = datetime.now()
