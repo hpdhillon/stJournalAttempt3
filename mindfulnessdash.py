@@ -111,7 +111,7 @@ def write():
             if sentence.count(".") + sentence.count("!") + sentence.count("?") == 0:
                 st.write("Write more!")
             else:
-                st.write("you're feeling :" + score)
+                st.write("you're feeling : " + score)
                 #if booleon <  -2:
                 #    st.write("You sound sad. That's fine. Let it all out.")
                 #    st.markdown("![Alt Text](https://media.tenor.com/images/ff4a60a02557236c910f864611271df2/tenor.gif)")
