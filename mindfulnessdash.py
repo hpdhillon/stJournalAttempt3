@@ -12,6 +12,7 @@ def write():
     #Might have to remove the following three lines too. A lot will be deleted unless I find some ML use case for it.
     import scipy
     import torch
+    import re
     #import sklearn
     from scipy import spatial
     from sentence_transformers import SentenceTransformer
