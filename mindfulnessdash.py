@@ -97,10 +97,10 @@ def write():
             if result[0] == 2:
                 score = "optimistic"
             try:
-                lis.append([df[0])
+                lis.append([df[0]])
             except:
                 lis = list()
-                lis.append([df[0])
+                lis.append([df[0]])
     #need to revise output. Output should be a page of resources with a gif on top.
     if st.button('Analysis'):
         #gonna change this to if sentence.count(x) + count(y) .... < 5, then ask them to write more.
