@@ -3,6 +3,7 @@ def write():
     #datetime is imported so that the user's [entry, date] pair can be saved
     from datetime import datetime
     import nltk as nltk
+    import joblib
     #I think math is imported to compute ceiling of polarization heuristic. Will delete that and this import soon. 
     import math as math
     nltk.download('vader_lexicon')
