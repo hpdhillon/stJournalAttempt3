@@ -4,7 +4,7 @@ def write():
     from datetime import datetime
     import nltk as nltk
     import joblib
-    #I think math is imported to compute ceiling of polarization heuristic. Will delete that and this import soon. 
+    #I think math is imported to compute ceiling of polarization heuristic. Will delete that and this import soon.
     import math as math
     nltk.download('vader_lexicon')
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -76,7 +76,7 @@ def write():
                   break
 
         lis.append([rent, isear_feature, score, score2])
-        return lis    
+        return lis
 
     sentence = st.text_area("what's on your mind?")
     #button = st.button()
@@ -115,11 +115,15 @@ def write():
                 st.write("Write more!")
             else:
                 st.write("you're feeling : " + score)
-                if booleon <  -2:
+                if score == "pessimistic":
                     st.write("You sound sad. That's fine. Let it all out.")
                     st.markdown("![Alt Text](https://media.tenor.com/images/ff4a60a02557236c910f864611271df2/tenor.gif)")
+                    st.write("Check out the resources tab to see how you can 'learn' optimism")
                     st.markdown("[Click here if you need extra help](https://suicidepreventionlifeline.org/chat/)")
-                if booleon > 2:
+                if score == "neutral":
+                    st.write("You're just chilling. Waiting on some stuff to play out. It be like that sometimes.")
+                    st.markdown("![Alt Text](https://media1.tenor.com/images/0fbf51f99bccd97a825d11cb4487ce85/tenor.gif?itemid=11015213)")
+                if score == "optimistic":
                     st.write("You are a ray of sunshine today! Keep it up playa!")
                     st.markdown("![Alt Text](https://media.tenor.com/images/2aa9b6f3a7d832c2ff1c1a406d5eae73/tenor.gif)")
     #st.header("Insert your username below to save your score")
@@ -129,12 +133,12 @@ def write():
     if st.button('Save my score'):
         try:
             import csv
-            fields= [score, today]
+            fields= [result[0], sentence, today]
             with open(username + ".csv", 'a') as f:
                 writer = csv.writer(f)
                 writer.writerow(fields)
         except FileNotFoundError:
             scored = list()
-            scored.append([score, today])
+            scored.append([result[0], sentence, today])
             score = pd.DataFrame(scored)
             score.to_csv(username + ".csv")
