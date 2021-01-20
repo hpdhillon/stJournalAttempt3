@@ -13,3 +13,4 @@ matplotlib
 wordcloud
 awesome_streamlit
 joblib
+seaborn

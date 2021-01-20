@@ -24,15 +24,16 @@ def main():
         ast.shared.components.write_page(page)
     st.sidebar.title("FAQ")
     st.sidebar.info(
-        "The model requires at least 5 sentences to be accurate. Current accuracy is 86 percent, so that means it's possible for it to mess up sometimes!"
-        " Reporting mistakes greatly helps us predict better in the future. As of right now, we do not have access to any user data (we'd have to guess your usernames for that)."
-        " So if you'd like to help us, please fill out the google form on our resources page with your journal entry and what you feel the model should have output. Thank you!"
+        "The model requires at least 5 sentences to be accurate. Current accuracy is 86 percent, so that means it's possible for it to mess up sometimes!  \n"
+        "Reporting mistakes greatly helps me predict better in the future. I do not have access to any user data, so if you'd like to help me, please fill out the google form linked on the resources page with your journal entry and what you feel the model should have output. Thank you!  \n"
+        "UserProfile is best viewed in wide mode. Select the toolbar in the upper right and then settings to switch to wide mode."
     )
     st.sidebar.title("Credits")
     st.sidebar.info(
-        "Thank you to Marc Skov Madsen for creating awesome_streamlit, the library that allowed us to easily create this nav bar"
-        " Thank you to Kevin Northover for introducing me to streamlit, last year at a New Jersey Data Science Meetup"
-        " Thank you to UKPLab for creating sentence-bert, Stanford for the open pessimist/optimist tweet data, the isear dataset curators and google's colab creators for giving us the platform we needed to generate our complex features and model"
+        "A big thanks to:  \n"
+        "Marc Skov Madsen for creating awesome_streamlit, the library that allowed me to easily create this nav bar  \n"
+        "Kevin Northover for introducing me to streamlit  \n" 
+        "UKPLab for creating sentence-bert, Stanford for the open pessimist/optimist tweet data, the isear dataset curators and google's colab creators for giving me the platform I needed to generate the complex features and model"
     )
 
 
