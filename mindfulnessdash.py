@@ -21,6 +21,11 @@ def write():
     def load_my_model():
         model = SentenceTransformer('distilbert-base-nli-mean-tokens')
         return model
+    from transformers import pipeline
+    @st.cache(allow_output_mutation=True)
+    def load_classifier():
+        classifier = pipeline('sentiment-analysis')
+        return classifier
     #As mentioned before, this should be deleted soon
     #Gotta revise this ML code. Need to upload the saved GradientBoostedClassifier.
     #Even this code is not optimized. We should have 75-85 percent accuracy but: a) 10-15 percent of the training data has incorrect sentiment scores, b) I just picked the first
@@ -74,8 +79,19 @@ def write():
                 if result >= .8:
                   isear_feature = isear_feature - 1
                   break
-
-        lis.append([rent, isear_feature, score, score2])
+        hugscore = 0
+        classifier = load_classifier()
+        if len(a) > 3:
+          for i in range(0, len(a)):
+            result = classifier(a[i])
+            result = pd.DataFrame(result)
+            if str(result["label"]).count("POS") > 0:
+              hugscore = hugscore + result['score']
+            if str(result["label"]).count("NEG") > 0:
+              hugscore = hugscore - result['score']
+        hugscore = hugscore / len(a)
+        hugscore = float(hugscore)
+        lis.append([rent, isear_feature, score, score2, hugscore])
         return lis
 
     sentence = st.text_area("what's on your mind?")
@@ -89,8 +105,8 @@ def write():
         else:
             df = analysis(sentence)
             df = pd.DataFrame(df)
-            df.columns = ["rent", "isear_feature", "score", "score3"]
-            loaded_model = joblib.load("GradientBoostedClassifier85_7.sav")
+            df.columns = ["rent", "isear_feature", "score", "score3", "hugscore"]
+            loaded_model = joblib.load("GradientBoostedClassifier95.sav")
             result = loaded_model.predict(df)
             if result[0] == 0:
                 score = "pessimistic"
