@@ -24,9 +24,10 @@ def main():
         ast.shared.components.write_page(page)
     st.sidebar.title("FAQ")
     st.sidebar.info(
-        "The model requires at least 5 sentences to be accurate. Current accuracy is 86 percent, so that means it's possible for it to mess up sometimes!"
-        " Reporting mistakes greatly helps me predict better in the future. As of right now, I do not have access to any user data (I'd have to guess your usernames for that)."
-        " So if you'd like to help me, please fill out the google form linked on the resources page with your journal entry and what you feel the model should have output. Thank you!"
+        "The model requires at least 5 sentences to be accurate. Current accuracy is 86 percent, so that means it's possible for it to mess up sometimes!  /n"
+        "Reporting mistakes greatly helps me predict better in the future. I do not have access to any user data (I'd have to guess your usernames for that).  /n"
+        "So if you'd like to help me, please fill out the google form linked on the resources page with your journal entry and what you feel the model should have output. Thank you!  /n"
+        "UserProfile is best viewed in wide mode. Select the toolbar in the upper right and then settings to switch to wide mode."
     )
     st.sidebar.title("Credits")
     st.sidebar.info(
