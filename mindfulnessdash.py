@@ -129,7 +129,7 @@ def write():
         if len(sentence) > 1:
             if sentence.count(".") + sentence.count("!") + sentence.count("?") < 5:
                 st.write("Can't analyze! Not strong enough to compute without more sentences :(")
-                st.markdown("![Alt Text](https://tenor.com/view/ai-robot-fail-clumsy-robot-gif-11992490)")
+                st.markdown("![Alt Text](https://media1.tenor.com/images/cedbc086995947a3e2c239f13a3661b4/tenor.gif?itemid=11992490)")
             else:
                 st.write("you're feeling : " + score)
                 if score == "pessimistic":
