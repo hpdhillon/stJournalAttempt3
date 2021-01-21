@@ -127,7 +127,7 @@ def write():
         #gonna change this to if sentence.count(x) + count(y) .... < 5, then ask them to write more.
         #the model does poorly on samples less than 5 sentences
         if len(sentence) > 1:
-            if sentence.count(".") + sentence.count("!") + sentence.count("?") == 0:
+            if sentence.count(".") + sentence.count("!") + sentence.count("?") < 5:
                 st.write("Write more!")
             else:
                 st.write("you're feeling : " + score)
