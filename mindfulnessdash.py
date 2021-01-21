@@ -128,7 +128,8 @@ def write():
         #the model does poorly on samples less than 5 sentences
         if len(sentence) > 1:
             if sentence.count(".") + sentence.count("!") + sentence.count("?") < 5:
-                st.write("Write more!")
+                st.write("Can't analyze! Not strong enough to compute without more sentences :(")
+                st.markdown("![Alt Text](https://tenor.com/view/ai-robot-fail-clumsy-robot-gif-11992490)")
             else:
                 st.write("you're feeling : " + score)
                 if score == "pessimistic":
