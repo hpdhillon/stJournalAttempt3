@@ -24,7 +24,7 @@ def main():
         ast.shared.components.write_page(page)
     st.sidebar.title("FAQ")
     st.sidebar.info(
-        "The app requires proper punctuation to work, multiple punctuation marks like "!!" or "..." muddy feature generation. A patch to fix this is being worked on.  \n"
+        "The app requires proper punctuation to work, multiple punctuation marks like '!!' or '...' muddy feature generation. A patch to fix this is being worked on.  \n"
         "The model requires at least 5 sentences to be accurate. Current LOOCV test accuracy is 95 percent, so that means it's possible for it to mess up sometimes!  \n"
         "Reporting mistakes greatly helps me predict better in the future. I do not have access to any user data, so if you'd like to help me, please fill out the google form linked on the resources page with your journal entry and what you feel the model should have output.  \n"
         "UserProfile is best viewed in wide mode. Select the toolbar in the upper right and then settings to switch to wide mode."
