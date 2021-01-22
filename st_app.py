@@ -34,7 +34,7 @@ def main():
         "A big thanks to:  \n"
         "Marc Skov Madsen for creating awesome_streamlit, the library that allowed me to easily create this nav bar  \n"
         "Kevin Northover for introducing me to streamlit  \n" 
-        "Nico, Vic, Arnold & Pat for helping curate the dataset  \n"
+        "Nico, Vic, Arnold, Pat & Yoni for helping curate the dataset  \n"
         "UKPLab for creating sentence-bert, Stanford for the open pessimist/optimist tweet data, the isear dataset curators and google's colab creators for giving me the platform I needed to generate the complex features and model"
     )
 
