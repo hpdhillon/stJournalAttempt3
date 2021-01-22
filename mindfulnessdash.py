@@ -42,7 +42,7 @@ def write():
             c = sid.polarity_scores(b)
             score = c['compound']
         if len(a) > 3:
-            b = a[len(a)-3] ". " + a[len(a)-2] + ". " +a[len(a)-1]
+            b = a[len(a)-3] + ". " + a[len(a)-2] + ". " +a[len(a)-1]
             c = sid.polarity_scores(b)
             score2 = c['compound']
         else:
