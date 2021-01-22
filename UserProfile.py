@@ -1,6 +1,4 @@
 def write():
-    #a possible segway from all of this would be to give people their data and say, go to this Tableau dashboard, input your data and see your personalized User Profile!
-    #might take too much work tho
     #write is smart...it stops you from loading the every page when you import
     #^Above notes are just my musings
     import streamlit as st
@@ -11,7 +9,7 @@ def write():
 
     username = st.text_input("Enter username here:")
     #plays song on the beach
-    #eventually we should let this personalize
+    #eventually I should let this personalize
     boolean = False
     if len(username) > 0:
         try:
@@ -33,10 +31,10 @@ def write():
         #recent = the most recent score
         recent = score[len(score)-1]
         #below are placeholders for personalized notes. should add functionality for this l8r
-        if recent == 2:
-            st.write("You're doing well today. I hope you keep up the progress.")
-        if recent == 1:
-            st.write("You're not feeling so great today, and that's okay. Know I'll always care about you.")
+        #if recent == 2:
+        #    st.write("You're doing well today. I hope you keep up the progress.")
+        #if recent == 1:
+        #    st.write("You're not feeling so great today, and that's okay. Know I'll always care about you.")
         if recent == 0:
             st.write("Days like these come, and it's perfectly fine to be upset when difficulties arise. What you should remember is that days like these pass too, and that even when these times are dark, you still have friends, family, external resources to reach out too. Check out the resources tab for ways you can improve now.")
 
