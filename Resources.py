@@ -25,9 +25,13 @@ of the world around them. On the flip side, they recognize bad events as tempora
 are or the world around them.
 
 In short they view good events as being personal, permanent and pervasive, whilst viewing bad events as
-impersonal, impermanent and localized.
+impersonal, impermanent and localized."![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)"
+
 
 The graphic below shows a good example of optimistic vs pessimistic response to an event
+
+"![Alt Text](https://s3.studylib.net/store/data/008273739_1-b8a80d2283fa2851c6e1b354a48ea183.png)"
+
 
 ## How do I know how optimistic/pessimistic I am? ##
 
