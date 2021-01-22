@@ -38,11 +38,11 @@ def write():
         score = m['compound']
         a = re.split("[.!?;\n]", sentence)
         if len(a) > 2:
-            b = a[len(a)-2]+". " +a[len(a)-1]
+            b = a[len(a)-2]+ ". " +a[len(a)-1]
             c = sid.polarity_scores(b)
             score = c['compound']
         if len(a) > 3:
-            b = a[len(a)-3] + a[len(a)-2] +"."+a[len(a)-1]
+            b = a[len(a)-3] ". " + a[len(a)-2] + ". " +a[len(a)-1]
             c = sid.polarity_scores(b)
             score2 = c['compound']
         else:
@@ -106,7 +106,7 @@ def write():
             df = analysis(sentence)
             df = pd.DataFrame(df)
             df.columns = ["rent", "isear_feature", "score", "score3", "hugscore"]
-            loaded_model = joblib.load("GradientBoostedClassifier95.sav")
+            loaded_model = joblib.load("GradientBoostedClassifier90CV.sav")
             result = loaded_model.predict(df)
             if result[0] == 0:
                 score = "pessimistic"
