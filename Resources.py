@@ -28,7 +28,7 @@ In short they view good events as being personal, permanent and pervasive, whils
 impersonal, impermanent and localized.
 
 
-The graphic below best explains the key differences.
+The graphic below best explains this.
 
 ![Alt Text](https://s3.studylib.net/store/data/008273739_1-b8a80d2283fa2851c6e1b354a48ea183.png)
 
