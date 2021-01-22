@@ -4,13 +4,11 @@ def write():
     from datetime import datetime
     import nltk as nltk
     import joblib
-    #I think math is imported to compute ceiling of polarization heuristic. Will delete that and this import soon.
     import math as math
     nltk.download('vader_lexicon')
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
     import pandas as pd
     sid = SentimentIntensityAnalyzer()
-    #Might have to remove the following three lines too. A lot will be deleted unless I find some ML use case for it.
     import scipy
     import torch
     import re
@@ -26,10 +24,12 @@ def write():
     def load_classifier():
         classifier = pipeline('sentiment-analysis')
         return classifier
-    #As mentioned before, this should be deleted soon
-    #Gotta revise this ML code. Need to upload the saved GradientBoostedClassifier.
-    #Even this code is not optimized. We should have 75-85 percent accuracy but: a) 10-15 percent of the training data has incorrect sentiment scores, b) I just picked the first
-    #model that got to 85 percent accuracy, the model can be improved by having a higher cutoff and doing cross validation and grid search to find the most optimal hyperparameters
+    @st.cache(allow_output_mutation = True)
+    def load_isear():
+      isear = pd.read_csv("isear_embed.csv")
+      isear = isear.drop("index", axis = 1)
+      return isear
+    
     @st.cache
     def analysis(sentence):
         model = load_my_model()
@@ -52,8 +52,7 @@ def write():
         OPTO = pd.read_csv("OPTO.csv")
         optimistic_embeddings = OPTO.values.tolist()
         #should check what happens when i do .values.tolist() a nd why i do it
-        isear = pd.read_csv("isear_embed.csv")
-        isear = isear.drop("index", axis = 1)
+        isear = load_isear()
         isear_list = isear.values.tolist()
         booleon = 0
         a_embeddings = model.encode(a)
