@@ -140,7 +140,7 @@ def write():
                     st.write("You're just chilling. Waiting on some stuff to play out. It be like that sometimes.")
                     st.markdown("![Alt Text](https://media1.tenor.com/images/0fbf51f99bccd97a825d11cb4487ce85/tenor.gif?itemid=11015213)")
                 if score == "optimistic":
-                    st.write("You are a ray of sunshine today! Keep it up playa!")
+                    st.write("You are a ray of sunshine today! Keep it up!")
                     st.markdown("![Alt Text](https://media.tenor.com/images/2aa9b6f3a7d832c2ff1c1a406d5eae73/tenor.gif)")
     #st.header("Insert your username below to save your score")
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
