@@ -132,7 +132,7 @@ def write():
             else:
                 st.write("you're feeling : " + score)
                 if score == "pessimistic":
-                    st.write("You sound sad. That's fine. Let it all out.")
+                    st.write("That's fine. Let it all out.")
                     st.markdown("![Alt Text](https://media.tenor.com/images/ff4a60a02557236c910f864611271df2/tenor.gif)")
                     st.write("Check out the resources tab to see how you can 'learn' optimism")
                     st.markdown("[Click here if you need extra help](https://suicidepreventionlifeline.org/chat/)")
