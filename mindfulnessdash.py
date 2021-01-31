@@ -146,7 +146,7 @@ def write():
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
     today = datetime.now()
     #st.text_input doesn't work inside the st.button()....gotta figure out why
-    if st.button('Save my score (press this twice if a new user)'):
+    if st.button('Save my score'):
         try:
             import csv
             fields= [result[0], sentence, today]
