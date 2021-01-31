@@ -24,7 +24,7 @@ def main():
         ast.shared.components.write_page(page)
     st.sidebar.title("FAQ")
     st.sidebar.info(
-        "IF IT IS YOUR FIRST SAVED ENTRY, PLEASE PRESS 'SAVE MY SCORE' TWICE, I'm currently working on fixing this!  \n"
+        "IF IT IS YOUR FIRST SAVED ENTRY, PLEASE PRESS 'SAVE MY SCORE' TWICE.  \n"
         "The model requires proper punctuation to work, multiple punctuation marks like '!!' or '...' muddy feature generation :(.  \n"
         "The model requires at least 5 sentences to be accurate. Current LOOCV test accuracy is 91 percent, so that means it's possible for it to mess up sometimes!  \n"
         "Reporting mistakes greatly helps me predict better in the future. I do not have access to any user data, so if you'd like to help me, please fill out this form: https://forms.gle/KSbNpo2pSdh4WFYS6.  \n"
