@@ -29,14 +29,18 @@ def write():
         df.columns = ["score", "sentence", "date"]
         score = df["score"]
         #recent = the most recent score
-        recent = score[len(score)-1]
+        try:
+            recent = score[len(score)-1]
+            if recent == 0:
+                st.write("Days like these come, and it's perfectly fine to be upset when difficulties arise. What you should remember is that days like these pass too, and that even when these times are dark, you still have friends, family, external resources to reach out too. Check out the resources tab for ways you can improve now.") 
+        except:
+            st.write("Your username exists but we didn't save your score. Sorry about that! Please insert your journal entry again and press save my score again to save it officially. This is a known bug thart occurs when a username is first created, but not after!")
         #below are placeholders for personalized notes. should add functionality for this l8r
         #if recent == 2:
         #    st.write("You're doing well today. I hope you keep up the progress.")
         #if recent == 1:
         #    st.write("You're not feeling so great today, and that's okay. Know I'll always care about you.")
-        if recent == 0:
-            st.write("Days like these come, and it's perfectly fine to be upset when difficulties arise. What you should remember is that days like these pass too, and that even when these times are dark, you still have friends, family, external resources to reach out too. Check out the resources tab for ways you can improve now.")
+        
 
         #code where if the last five have been super happy play Photograph
 
