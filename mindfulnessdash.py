@@ -20,10 +20,10 @@ def write():
         model = SentenceTransformer('distilbert-base-nli-mean-tokens')
         return model
     from transformers import pipeline
-    @st.cache(allow_output_mutation=True)
-    def load_classifier():
-        classifier = pipeline('sentiment-analysis')
-        return classifier
+    #@st.cache(allow_output_mutation=True)
+    #def load_classifier():
+    #    classifier = pipeline('sentiment-analysis')
+    #    return classifier
     @st.cache(allow_output_mutation = True)
     def load_isear():
       isear = pd.read_csv("isear_embed.csv")
@@ -79,7 +79,7 @@ def write():
                   isear_feature = isear_feature - 1
                   break
         hugscore = 0
-        classifier = load_classifier()
+        classifier = pipeline('sentiment-analysis')
         if len(a) > 3:
           for i in range(0, len(a)):
             result = classifier(a[i])
