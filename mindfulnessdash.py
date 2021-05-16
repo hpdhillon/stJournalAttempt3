@@ -159,6 +159,5 @@ def write():
     
     if gargle == True:
         score = pd.DataFrame([[result[0], sentence, today]], columns = ["score", "sentence", "date"])
-        st.write(score)
-        #header = ["score", "sentence", "date"]
+        score = pd.concat([score, score], axis = 0)
         score.to_csv(username + ".csv")
