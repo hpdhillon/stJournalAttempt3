@@ -157,7 +157,7 @@ def write():
         except FileNotFoundError:
             gargle = TRUE
     
-    if gargle = TRUE:
+    if gargle == TRUE:
         score = pd.DataFrame([[result[0], sentence, today]], columns = ["score", "sentence", "date"])
         st.write(score)
         #header = ["score", "sentence", "date"]
