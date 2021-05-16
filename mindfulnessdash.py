@@ -145,6 +145,7 @@ def write():
     #st.header("Insert your username below to save your score")
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
     today = datetime.now()
+    gargle = FALSE
     #st.text_input doesn't work inside the st.button()....gotta figure out why
     if st.button('Save my score'):
         try:
@@ -154,7 +155,10 @@ def write():
                 writer = csv.writer(f)
                 writer.writerow(fields)
         except FileNotFoundError:
-            score = pd.DataFrame([[result[0], sentence, today]], columns = ["score", "sentence", "date"])
-            st.write(score)
-            #header = ["score", "sentence", "date"]
-            score.to_csv(username + ".csv")
+            gargle = TRUE
+    
+    if gargle = TRUE:
+        score = pd.DataFrame([[result[0], sentence, today]], columns = ["score", "sentence", "date"])
+        st.write(score)
+        #header = ["score", "sentence", "date"]
+        score.to_csv(username + ".csv")
