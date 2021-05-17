@@ -145,21 +145,20 @@ def write():
     #st.header("Insert your username below to save your score")
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
     today = datetime.now()
-    gargle = False
     #st.text_input doesn't work inside the st.button()....gotta figure out why
+    #^above is an old note, i know why now, I just keep it there to remind me that inside button actions are way diff than outside button actions
     if st.button('Save my score'):
+        import csv
+        fields= [result[0], sentence, today]
         try:
-            import csv
-            fields= [result[0], sentence, today]
+            st.write("not there!")
+            test = open(username + ".csv", 'r')
             with open(username + ".csv", 'a') as f:
                 writer = csv.writer(f)
                 writer.writerow(fields)
         except FileNotFoundError:
-            score = pd.DataFrame(list(["score", "sentence", "date"]))
-            score.to_csv(username + ".csv")
-            colnames = ["score", "sentence", "date"]
-            fields= [result[0], sentence, today]
             with open(username + ".csv", 'a') as f:
                 writer = csv.writer(f)
-                writer.writerow(colnames)
+                writer.writerow(["score", "sentence", "date"])
                 writer.writerow(fields)
+
