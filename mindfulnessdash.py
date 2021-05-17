@@ -155,9 +155,11 @@ def write():
                 writer = csv.writer(f)
                 writer.writerow(fields)
         except FileNotFoundError:
-            gargle = True
-    
-    if gargle == True:
-        score = pd.DataFrame([[result[0], sentence, today]], columns = ["score", "sentence", "date"])
-        score = pd.concat([score, score], axis = 0)
-        score.to_csv(username + ".csv")
+            score = pd.DataFrame(list(["score", "sentence", "date"]))
+            score.to_csv(username + ".csv")
+            colnames = ["score", "sentence", "date"]
+            fields= [result[0], sentence, today]
+            with open(username + ".csv", 'a') as f:
+                writer = csv.writer(f)
+                writer.writerow(colnames)
+                writer.writerow(fields)
