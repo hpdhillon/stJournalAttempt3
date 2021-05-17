@@ -151,7 +151,6 @@ def write():
         import csv
         fields= [result[0], sentence, today]
         try:
-            st.write("not there!")
             test = open(username + ".csv", 'r')
             with open(username + ".csv", 'a') as f:
                 writer = csv.writer(f)
