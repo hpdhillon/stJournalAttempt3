@@ -129,6 +129,9 @@ def write():
             if sentence.count(".") + sentence.count("!") + sentence.count("?") < 5:
                 st.write("I'm not smart enough to analyze this without more sentences :(")
                 st.markdown("![Alt Text](https://media1.tenor.com/images/cedbc086995947a3e2c239f13a3661b4/tenor.gif?itemid=11992490)")
+            elif sentence.count("..") + sentence.count("!!") > 2:
+                st.write("I can't analyze entries right now that have abnormal punctuation. Feel free to change your punctuation and try again.")
+                st.markdown("![Alt Text](https://media1.tenor.com/images/59f338103063f0c10ee1163d48b4dd14/tenor.gif?itemid=17312786)")
             else:
                 st.write("you're feeling : " + score)
                 if score == "pessimistic":
