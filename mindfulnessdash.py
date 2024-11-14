@@ -105,7 +105,7 @@ def write():
             df = analysis(sentence)
             df = pd.DataFrame(df)
             df.columns = ["rent", "isear_feature", "score", "score3", "hugscore"]
-            loaded_model = joblib.load("GradientBoostedClassifier90CV.sav")
+            loaded_model = joblib.load("Updated_Model_11_24.sav")
             result = loaded_model.predict(df)
             if result[0] == 0:
                 score = "pessimistic"
