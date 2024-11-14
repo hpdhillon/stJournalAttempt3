@@ -1,4 +1,4 @@
-nltk==3.5
+nltk
 numpy
 pandas
 scipy
@@ -8,7 +8,7 @@ streamlit
 torch
 transformers
 tqdm
-scikit-learn==1.1.0
+scikit-learn
 matplotlib
 wordcloud
 joblib
