@@ -1,7 +1,7 @@
 nltk==3.5
-numpy==1.18.5
-pandas==1.1.1
-scipy==1.5.2
+numpy
+pandas
+scipy
 semantic-text-similarity
 sentence-transformers
 streamlit
