@@ -6,7 +6,7 @@ semantic-text-similarity
 sentence-transformers
 streamlit
 torch
-transformers>=3.1.0,<3.2.0
+transformers
 tqdm
 scikit-learn==1.1.0
 matplotlib
