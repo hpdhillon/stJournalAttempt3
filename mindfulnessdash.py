@@ -1,83 +1,15 @@
-def write():
-    import streamlit as st
-    #datetime is imported so that the user's [entry, date] pair can be saved
-    from datetime import datetime
-    import nltk as nltk
-    import joblib
-    import math as math
-    nltk.download('vader_lexicon')
-    from nltk.sentiment.vader import SentimentIntensityAnalyzer
-    import pandas as pd
-    sid = SentimentIntensityAnalyzer()
-    import scipy
-    import torch
-    import re
-    #import sklearn
-    from scipy import spatial
-    from sentence_transformers import SentenceTransformer
-    @st.cache(allow_output_mutation=True)
-    def load_my_model():
-        model = SentenceTransformer('distilbert-base-nli-mean-tokens')
-        return model
-    from transformers import pipeline
-    #@st.cache(allow_output_mutation=True)
-    #def load_classifier():
-    #    classifier = pipeline('sentiment-analysis')
-    #    return classifier
-    @st.cache(allow_output_mutation = True)
-    def load_isear():
-      isear = pd.read_csv("isear_embed.csv")
-      isear = isear.drop("index", axis = 1)
-      return isear
+import streamlit as st
+#datetime is imported so that the user's [entry, date] pair can be saved
+from datetime import datetime
+import math as math
+import pandas as pd
+from openai import OpenAI
+
+
+def write():    
     
-    @st.cache
     def analysis(sentence):
-        model = load_my_model()
-        lis = list()
-        m = sid.polarity_scores(sentence)
-        score = m['compound']
-        a = re.split("[.!?;\n]", sentence)
-        if len(a) > 2:
-            b = a[len(a)-2]+ ". " +a[len(a)-1]
-            c = sid.polarity_scores(b)
-            score = c['compound']
-        if len(a) > 3:
-            b = a[len(a)-3] + ". " + a[len(a)-2] + ". " +a[len(a)-1]
-            c = sid.polarity_scores(b)
-            score2 = c['compound']
-        else:
-            score2 = 0
-        EHS = pd.read_csv("EHS.csv")
-        sentence_embeddings = EHS.values.tolist()
-        OPTO = pd.read_csv("OPTO.csv")
-        optimistic_embeddings = OPTO.values.tolist()
-        #should check what happens when i do .values.tolist() a nd why i do it
-        isear = load_isear()
-        isear_list = isear.values.tolist()
-        booleon = 0
-        a_embeddings = model.encode(a)
-        for j in range(len(a_embeddings)):
-            for i in range(len(sentence_embeddings)):
-              result = 1 - spatial.distance.cosine(sentence_embeddings[i], a_embeddings[j])
-              if result > .8:
-                  booleon = booleon - 1
-                  #print(a[j])
-                  #st.write('You sound helpless, this sentence concerned me:', a[j])
-                  break
-        for j in range(len(a_embeddings)):
-            for i in range(len(optimistic_embeddings)):
-              result = 1 - spatial.distance.cosine(optimistic_embeddings[i], a_embeddings[j])
-              if result > .8:
-                  booleon = booleon + 1
-                  break
-        rent = (booleon/len(a_embeddings))
-        isear_feature = 0
-        for j in range(len(a_embeddings)):
-            for i in range(len(isear_list)):
-                result = 1 - spatial.distance.cosine(isear_list[i], a_embeddings[j])
-                if result >= .8:
-                  isear_feature = isear_feature - 1
-                  break
+       
         hugscore = 0
         classifier = pipeline('sentiment-analysis')
         if len(a) > 3:
@@ -102,18 +34,35 @@ def write():
         if sentence.count(".") == 0:
             st.write("Write more!")
         else:
-            df = analysis(sentence)
-            df = pd.DataFrame(df)
-            df.columns = ["rent", "isear_feature", "score", "score3", "hugscore"]
-            loaded_model = joblib.load("Updated_Model_11_24.sav")
-            result = loaded_model.predict(df)
-            if result[0] == 0:
+            client = OpenAI(api_key = "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")
+
+            
+            # Create a chat completion using the new interface
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",  # Specify the model you wish to use
+                messages=[
+                    {"role": "system", "content": "You are an autonomous agent."},
+                    {
+                        "role": "user",
+                        "content": (
+                            "Based on 'Learned Optimism' by Martin Seligman, classify the following journal entry as either "
+                            "pessimistic, optimistic, or neutral. Return only a single number: 0 for pessimistic, 1 for neutral, "
+                            "and 2 for optimistic.\n\n"
+                            f"Journal Entry: {sentence}"
+                        )
+                    }
+                ],
+                max_tokens=1  # Expecting a single number as output
+            )
+            result = int(response.choices[0].message.content.strip())
+
+            if result == 0:
                 score = "pessimistic"
                 booleon = -3
-            if result[0] == 1:
+            if result == 1:
                 score = "neutral"
                 booleon = 0
-            if result[0] == 2:
+            if result == 2:
                 score = "optimistic"
                 booleon = 3
             #try:
