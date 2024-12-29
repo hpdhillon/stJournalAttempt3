@@ -5,6 +5,7 @@ import math as math
 import pandas as pd
 from openai import OpenAI
 
+openai_key = st.secrets["openai"]
 
 def write():    
     
@@ -34,7 +35,7 @@ def write():
         if sentence.count(".") == 0:
             st.write("Write more!")
         else:
-            client = OpenAI(api_key = st.secrets["openai"])
+            client = OpenAI(api_key = openai_key)
             
             # Create a chat completion using the new interface
             response = client.chat.completions.create(
