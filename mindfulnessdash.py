@@ -34,8 +34,7 @@ def write():
         if sentence.count(".") == 0:
             st.write("Write more!")
         else:
-            client = OpenAI(api_key = "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")
-
+            client = OpenAI(api_key = st.secrets["openai"])
             
             # Create a chat completion using the new interface
             response = client.chat.completions.create(
