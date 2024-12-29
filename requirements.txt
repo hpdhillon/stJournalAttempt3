@@ -14,3 +14,4 @@ wordcloud
 joblib
 seaborn
 awesome_streamlit
+openai
