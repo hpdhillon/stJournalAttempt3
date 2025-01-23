@@ -101,15 +101,35 @@ def write():
     #^above is an old note, i know why now, I just keep it there to remind me that inside button actions are way diff than outside button actions
     if st.button('Save my score'):
         fields= [score, sentence, today]
+        import pymysql
+
+        connection = pymysql.connect(
+            st.secrets["pymysql"]
+        )
+
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS users (score INT, username VARCHAR(255), date DATE);
+            """)
+            connection.commit()
+            query = f"INSERT INTO users (score, username, date) VALUES ({score}, {username}, {today})"
+            st.write(query)
+            connection.query(query)
+
+        print("Table created successfully!")
+        
+
 
         
+        '''
         connection = st.connection(
+
             "sql" # Secrets must include host, port, database, user, password
         )
 
-        connection.query("CREATE TABLE IF NOT EXISTS users (score INT, username VARCHAR(255), date DATE)")
-        query = f"INSERT INTO users (score, username, date) VALUES ({score}, {username}, {today})"
-        st.write(query)
-        connection.query(query)
+        '''
         st.success("Data inserted successfully!")
+
+        connection.close()
+
 
