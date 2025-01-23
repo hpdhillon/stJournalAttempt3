@@ -114,7 +114,7 @@ def write():
             connection.commit()
             query = f"INSERT INTO users (score, username, date) VALUES ({score}, {username}, {today})"
             st.write(query)
-            connection.query(query)
+            cursor.execute(query)
 
         print("Table created successfully!")
         
