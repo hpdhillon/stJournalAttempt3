@@ -101,10 +101,8 @@ def write():
     #^above is an old note, i know why now, I just keep it there to remind me that inside button actions are way diff than outside button actions
     if st.button('Save my score'):
         fields= [score, sentence, today]
-        st.write(st.secrets["rds"])
         connection = st.connection(
-            "sql",
-            st.secrets["rds"]  # Secrets must include host, port, database, user, password
+            "sql" # Secrets must include host, port, database, user, password
         )
         query = f"INSERT INTO users (score, entry, date) VALUES ({score}, {sentence}, {today})"
         connection.execute(query)
