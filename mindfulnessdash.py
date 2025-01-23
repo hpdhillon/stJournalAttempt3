@@ -96,7 +96,7 @@ def write():
                     st.markdown("![Alt Text](https://media.tenor.com/images/2aa9b6f3a7d832c2ff1c1a406d5eae73/tenor.gif)")
     #st.header("Insert your username below to save your score")
     username = st.text_input("Username (required for you to save your score & see your day-to-day changes): ")
-    today = datetime.now()
+    today = datetime.now().strftime("%Y-%m-%d")
     #st.text_input doesn't work inside the st.button()....gotta figure out why
     #^above is an old note, i know why now, I just keep it there to remind me that inside button actions are way diff than outside button actions
     if st.button('Save my score'):
