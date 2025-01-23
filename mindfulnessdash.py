@@ -104,11 +104,9 @@ def write():
     if st.button('Save my score'):
         fields= [score, sentence, today]
         import pymysql
-
-
         st.write(st.secrets["pymysql"])
         connection = pymysql.connect(
-            st.secrets["pymysql"]
+            **st.secrets["pymysql"]
         )
 
         with connection.cursor() as cursor:
