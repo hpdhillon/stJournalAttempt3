@@ -100,7 +100,7 @@ def write():
     #st.text_input doesn't work inside the st.button()....gotta figure out why
     #^above is an old note, i know why now, I just keep it there to remind me that inside button actions are way diff than outside button actions
     if st.button('Save my score'):
-        fields= [result[0], sentence, today]
+        fields= [score, sentence, today]
         connection = st.connection(
             "sql",
             st.secrets["rds"]  # Secrets must include host, port, database, user, password
