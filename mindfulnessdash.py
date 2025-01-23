@@ -100,16 +100,12 @@ def write():
     #st.text_input doesn't work inside the st.button()....gotta figure out why
     #^above is an old note, i know why now, I just keep it there to remind me that inside button actions are way diff than outside button actions
     if st.button('Save my score'):
-        import csv
         fields= [result[0], sentence, today]
-        try:
-            test = open(username + ".csv", 'r')
-            with open(username + ".csv", 'a') as f:
-                writer = csv.writer(f)
-                writer.writerow(fields)
-        except FileNotFoundError:
-            with open(username + ".csv", 'a') as f:
-                writer = csv.writer(f)
-                writer.writerow(["score", "sentence", "date"])
-                writer.writerow(fields)
+        connection = st.connection(
+            "sql",
+            st.secrets["rds"]  # Secrets must include host, port, database, user, password
+        )
+        query = f"INSERT INTO users (score, entry, date) VALUES ({score}, {sentence}, {today})"
+        connection.execute(query)
+        st.success("Data inserted successfully!")
 
