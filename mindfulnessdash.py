@@ -105,6 +105,7 @@ def write():
             "sql" # Secrets must include host, port, database, user, password
         )
         query = f"INSERT INTO users (score, username, date) VALUES ({score}, {username}, {today})"
+        st.write(query)
         connection.query(query)
         st.success("Data inserted successfully!")
 
