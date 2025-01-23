@@ -7,6 +7,8 @@ from openai import OpenAI
 
 openai_key = st.secrets["openai"]
 
+st.write(st.secrets)
+
 def write():    
     
     def analysis(sentence):
