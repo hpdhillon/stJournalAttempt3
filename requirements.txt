@@ -16,4 +16,3 @@ seaborn
 awesome_streamlit
 openai
 sqlalchemy
-mysqlclient
