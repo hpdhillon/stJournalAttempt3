@@ -16,3 +16,4 @@ seaborn
 awesome_streamlit
 openai
 sqlalchemy
+pymysql
