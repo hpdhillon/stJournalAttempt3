@@ -103,6 +103,8 @@ def write():
         fields= [score, sentence, today]
         import pymysql
 
+
+        st.write(st.secrets["pymysql"])
         connection = pymysql.connect(
             st.secrets["pymysql"]
         )
