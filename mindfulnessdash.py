@@ -7,7 +7,6 @@ from openai import OpenAI
 
 openai_key = st.secrets["openai"]
 
-st.write(st.secrets)
 
 def write():    
     
@@ -115,7 +114,6 @@ def write():
             """)
             connection.commit()
             query = f"INSERT INTO users (score, username, date) VALUES ('{score}', '{username}', '{today}')"
-            st.write(query)
             cursor.execute(query)
 
         print("Table created successfully!")
