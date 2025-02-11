@@ -35,6 +35,7 @@ def write():
         st.audio(audio_bytes, format='audio/ogg')
         #this reads our rastaman, example user csv
         df = pd.DataFrame(result)
+        print(df)
         #str = random.choice(quote_list)
         #st.write(str)
         df = df.dropna()
