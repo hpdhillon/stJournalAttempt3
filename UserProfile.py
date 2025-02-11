@@ -34,7 +34,7 @@ def write():
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg')
         #this reads our rastaman, example user csv
-        df = pd.DataFrame([result[0], result[1], result[2]])
+        df = pd.DataFrame([result[0], result[1], result[2]]).T
         print(df)
         #str = random.choice(quote_list)
         #st.write(str)
