@@ -103,7 +103,6 @@ def write():
     if st.button('Save my score'):
         fields= [score, sentence, today]
         import pymysql
-        st.write(st.secrets["pymysql"])
         connection = pymysql.connect(
             **st.secrets["pymysql"]
         )
@@ -115,19 +114,7 @@ def write():
             connection.commit()
             query = f"INSERT INTO users (score, username, date) VALUES ('{score}', '{username}', '{today}')"
             cursor.execute(query)
-
-        print("Table created successfully!")
         
-
-
-        
-        '''
-        connection = st.connection(
-
-            "sql" # Secrets must include host, port, database, user, password
-        )
-
-        '''
         st.success("Data inserted successfully!")
 
         connection.close()
