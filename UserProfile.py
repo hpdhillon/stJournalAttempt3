@@ -45,7 +45,7 @@ def write():
         try:
             recent = score[len(score)-1]
             if recent == 0:
-                st.write("Days like these come, and it's perfectly fine to be upset when difficulties arise. What you should remember is that days like these pass too, and that even when these times are dark, you still have friends, family, external resources to reach out too. Check out the resources tab for ways you can improve now.") 
+                st.write("Days like these come, and it's perfectly fine to be upset when difficulties arise. What you should remember is that days like these pass too, and that even when these times are dark, you still have friends, family, external resources to reach out to. Check out the resources tab for ways you can improve now.") 
         except:
             st.write("Your username exists but we didn't save your score. Sorry about that! Please insert your journal entry again and press save my score again to save it officially. This is a known bug thart occurs when a username is first created, but not after!")
         #below are placeholders for personalized notes. should add functionality for this l8r
