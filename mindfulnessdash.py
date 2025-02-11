@@ -108,10 +108,6 @@ def write():
         )
 
         with connection.cursor() as cursor:
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS users (score INT, username VARCHAR(255), date DATE);
-            """)
-            connection.commit()
             query = f"INSERT INTO users (score, username, date) VALUES ('{score}', '{username}', '{today}')"
             cursor.execute(query)
         
