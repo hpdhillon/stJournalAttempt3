@@ -107,7 +107,7 @@ def write():
             **st.secrets["pymysql"]
         )
 
-        print(score)
+        st.write(score)
 
         with connection.cursor() as cursor:
             query = f"INSERT INTO users (score, username, date) VALUES ('{score}', '{username}', '{today}')"
