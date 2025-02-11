@@ -57,7 +57,8 @@ def write():
 
         #code where if the last five have been super happy play Photograph
 
-
+        # commented this out, will revise once this becomes part of my priorities again.
+        '''
         col1, col2, col3 = st.columns(3)
 
         #need to make this graph look better. should add a time slider too. would be cool if when a person hovers over a point they see the journal entry for it.
@@ -94,3 +95,4 @@ def write():
                         st.markdown(str)
             #else:
                 #st.write("your input is too short!")
+        '''
