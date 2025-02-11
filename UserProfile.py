@@ -26,7 +26,7 @@ def write():
                 st.write("user exists")
                 boolean = True
             else:
-                st.write("username doesn't exist!")
+                st.write("username doesn't exist! 1")
         except:
             st.write("username doesn't exist!")
     if boolean:
