@@ -13,8 +13,20 @@ def write():
     boolean = False
     if len(username) > 0:
         try:
-            df = pd.read_csv(username + ".csv")
-            boolean = True
+            import pymysql
+            connection = pymysql.connect(
+                **st.secrets["pymysql"]
+            )
+    
+            with connection.cursor() as cursor:
+                query = 'SELECT * FROM users WHERE username = %s'
+                cursor.execute(query, (username, ))
+                result = cursor.fetchone()
+            if result:
+                st.write("user exists")
+                boolean = True
+            else:
+                st.write("username doesn't exist!")
         except:
             st.write("username doesn't exist!")
     if boolean:
