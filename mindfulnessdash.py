@@ -110,7 +110,7 @@ def write():
         st.write(score)
 
         with connection.cursor() as cursor:
-            query = f"INSERT INTO users (score, username, date) VALUES ('{score}', '{username}', '{today}')"
+            query = f"INSERT INTO users (score, username, date) VALUES ('{result}', '{username}', '{today}')"
             cursor.execute(query)
             connection.commit()
         
